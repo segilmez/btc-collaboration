@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{color}
+
+\begin{document}
+
+\title{Pointers for collaboration}
+
+\maketitle
+
+%This document contains some pointers ... to extend the work in IJCAI & TAFA ...
+
+\section{The concept of support} %as an internal structure of the arguments}
+
+%%{\color{red} }
+%the intuitive idea
+Embedding the concept of support relations in our system carries utmost importance.
+
+%the objective:
+In the current state, of our system there is no concept that could be directly mapped to the notion of support relations as in the works like \cite{DBLP:journals/ijis/AmgoudCLL08}. The only ways of realising indirect support in the state of art would be casting negative votes to the attackers of the supported argument, or in a similar sense to cast positive votes in favour of the attackers of the attackers. Here the discussion is on if the system could benefit by having a more comprehensive mechanism with respect to the notion of support. 
+
+%methodologies:
+One methodology to achieve this objective is an extension of the current framework with a notion of \emph{PRO arguments}. In the sense that, instead of defining the counterpart of binary attack relations, the so-called support relations, we consider the new concept of PRO argument which would be internal structures for the existing arguments. The correlation will not be realised via a binary relation, but PRO arguments will simply be attached to their corresponding arguments as internal structures. The social voting still will only take part on the arguments themselves, thus these structures should be interpreted as additional reasons to make users vote on that particular argument.
+
+An alternative approach could be constructing a system without negative votes. Thus whenever a user is in favour of an argument, s/he will be casting a vote on the argument. So we maintain the notion of support realised as  a direct concept through votes. On the other hand if the user detests an argument, then s/he find a counter argument to attack it, specify it by utilising the means of the system and then vote on the argument and the attack as well.
+
+In terms of difficulties, we are ought to consider what kinds of objections might be raised concerning these methods. Regarding the first one, we may be asked to come up with a counter-part for the PRO arguments. In the sense that,  some internal structure for arguments that contain criticism regarding the argument they're attached to. Another critique might be on the fact that each PRO argument changes the existing state of the argument. So even the in tended meaning of PRO arguments are to act as enhancers for the arguments that they're associated to, it could be possible that some users just won't share the same sentiment towards the argument anymore as the way they felt when they votes before the addition of the PRO arguments. 
+
+\section{Representing multi-dimensional dataset} 
+Prof.Baroni had one pointer for enhancing the visual experience. The idea is representing multiple aspects concerning an argument via representing it through a face, instead of mere size\&color changes.
+So a few of the aspects that can be represented that came to our minds were the social support of the argument, the social strength of the argument, the number of total votes that were casted on the argument and also the number of attacks that argument was being subjected to.
+
+\section{Bi-dimensional vote definition}
+Another suggestion from Prof.Baroni was on the topic of distinguishing two arguments with the same ratio of positive to negative votes, but with different number of total votes. In our existing system(in the simplest case), we crunch the number of positive and negative votes an argument(or an attack) has received into a single value in the interval of reel numbers $[0,1]$.
+
+Instead of taking this approach, votes might be defined as vector operations in bi-dimensional space. And furthermore we may choose to treat vectors as forces.
+
+Again under this topic, I briefly mentioned as of this moment how we incorporate this size aspect concerning the votes, in the new proposals of our vote aggregation function.
+
+
+\section{Desired properties counterparts}
+Prof.Leite mentioned that one of the desired properties of our system, i.e. every vote should count, could me matched to the concept of positive responsiveness in Prof.Maudet's "multi-party persuasion" setting. So it may prove useful checking other properties as well and their counter-parts in respective settings. 
+
+
+\section{Labeling users}
+Prof.Maudet mentioned about an earlier work of his where they had this idea of labelling users and keeping a track of their contributions on the system with respect to their expertise.
+
+i.e. Argument a which is supported by two CS professors attack to argument b which is supported by three fishermen and a Math Professor.
+
+
+\section{Budget of allocated votes}
+Prof.Leite talked about our intention of limiting the total number of votes allocated for each user, and finding out how users strategies under such a setting. Prof.Maudet pointed out some relations between this idea and a game-theorethic concept called price of anarch. So in the system Prof.Maudet mentioned, agents have some fuzzy value regarding their preference on arguments. The emphasis is on how agents play(their best-response strategies) under a certain protocol, the intention being trying to make the values of arguments as close as their original preference. The price of anarch stands for the largest gap that you can get between the optimal centralized outcome, and the resulting outcome after the best-response actions carried by the agents. 
+
+
+\section{Voting schemes regarding negative votes}
+Another topic that was extensively discussed was the notion of different voting schemes to see different interpretations of a negative vote. Prof. Baroni pointed out that it would be hard to realise this distinction in the context of Social Networks, but if we could, we might want to use different operators in our system for them. So in summary, our focus was on the question of whether a negative vote meant the argument was badly spelled out, or simply the user did not like the argument, and whether we can come up with a pure system where everyone has the same interpretation on what a negative vote is, or whether some specific operator is better suited to a certain kind of negative votes.
+
+A related topic was the concept of inconsistency with respect to the votes casted by a certain user. Prof.Leite pointed out that first since the system constantly evolves, two arguments that a specific user was in favour of can all of a sudden be attacking to each other by the introduction of some attack relation by another user. Moreover if the interpretation of the votes is taken as an argument being well-structured or not, then it's perfectly plausible to cast "positive votes" on two mutually attacking arguments.
+
+Prof.Baroni suggested that similar tests can be carried out, like the ones used in Emmanuella's work (briefly observing what type of syllogisms prove to be more believable by people then others) to see whether there is a dominant interpretation with respect to votes. 
+
+
+\section{Efficient algorithms for computing solutions}
+Prof.Leite has mentioned on the current state of our framework regarding the algorithms for computing the models of the system. That the study focused mainly on four algorithms, that it had become apparent in early phases that two dominated the rest performance-wise. And between these two, one performs slightly better for small systems of low attack density and the other one scales better. And currently the results are satisfying in the sense that with these algorithms that one can solve(approximate) big systems(consisting of roughly a thousand arguments) under a second.
+
+
+\section{Unique issues for each user}
+As a response to my question, Prof.Maudet stated that it might be interesting to extend his work where instead of having a unique issue of the debate, letting individual agents have their own issues. This is closely related with our intention of finding out the strategies devised by users in our system in settings such as the ones with the concept budget.
+
+\bibliographystyle{plain}
+\bibliography{BTCcollaboration}
+
+\end{document}
