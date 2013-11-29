@@ -1,6 +1,152 @@
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{comment}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\newtheorem{definition}{Definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Algorithms and pseudo code
+\usepackage{verbatim}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+% Graphics and display
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{enumerate}
+\usepackage{url}
+\usepackage{multirow}
+
+% Math symbols and environments
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd} % \varcurlyvee
+
+
+\usepackage{calc}%#%
+
+% TikZ
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning}
+
+\definecolor{myyellow}{RGB}{255,255,150}
+\definecolor{mylavender}{RGB}{125,249,255}
+\definecolor{mygreen}{RGB}{144,238,14}
+\definecolor{myred}{RGB}{255,0,0}
+
+\newcommand\mytext[3][\scriptsize]{#2\\#1 #3}
+\newcommand\mynode[4][]{%
+  \node[mynode,#1,text width=\the\dimexpr#2cm] (#3) {\mytext{#3}{#4}}; 
+}
+\newcommand\mynot[4][]{%
+  \node[mynot,#1,text width=\the\dimexpr#2cm] (#3) {\mytext{#3}{#4}}; 
+}
+
+\setcounter{secnumdepth}{4}
+
+%%%%%%%%%%%%%%%%
+%%%% Macros %%%%
+%%%%%%%%%%%%%%%%
+
+%%% Math
+\newcommand{\nat}{\mathbb{N}}   % Natural numbers
+\newcommand{\rat}{\mathbb{Q}}   % Rational numbers
+\newcommand{\real}{\mathbb{R}}  % Real numbers
+\newcommand{\runit}{[0, 1]}    % The real unit interval
+
+
+% = with "hip." on the top, useful for indicating where a hypothesis comes in
+\newcommand{\heq}{\stackrel{\text{\fontsize{3pt}{3pt}\selectfont hip.}}{=}}
+% = because of the de Morgan laws.
+\newcommand{\dmeq}{\stackrel{\text{\tiny{dM}}}{=}}
+
+
+%%% Sets
+\newcommand{\args}{\mathcal{A}} % Set of all arguments
+\newcommand{\att}{\mathcal{R}}  % Set of all attacks
+\newcommand{\valueset}{L}
+
+%%% Votes on arguments
+\newcommand{\varg}{V_{\args}}   % Function giving votes on arguments
+\newcommand{\vargpro}[1]{\varg^+\left(#1\right)} % Pro votes on arguments
+\newcommand{\vargcon}[1]{\varg^-\left(#1\right)} % Con votes on arguments
+
+%%% Votes on attacks
+\newcommand{\vatt}{V_{\att}}   % Function giving votes on attacks
+\newcommand{\vattpro}[1]{\vatt^+\left(#1\right)} % Pro votes on attacks
+\newcommand{\vattcon}[1]{\vatt^-\left(#1\right)} % Con votes on attacks
+
+%%% Attack relations
+% Attackers of a given argument
+\newcommand{\attackers}[1]{\att^\text{-}\left(#1\right)} 
+% Attackers of a given argument for the alternative framework F'
+\newcommand{\altattackers}[1]{\att^{\prime\text{-}}\left(#1\right)}
+% Ancestors of given argument according to the attack relation
+\newcommand{\ancestors}[1]{\att^*\left(#1\right)} 
+
+%%% Frameworks
+\newcommand{\safid}{F}               % A single SAF, given by identifier
+\newcommand{\safset}{\mathcal{F}}    % Set of all SAFs
+
+\newcommand{\saf}{\safid = \safbody} % Framework id and respective tuple
+\newcommand{\safbody}{\langle \args, \att, \varg, \vatt \rangle} % SAF tuple
+% Alternative framework, same as \safbody but with ' everywhere ;)
+\newcommand{\altsafbody}{\langle \args', \att', \varg', \vatt' \rangle} 
+
+%%% Semantics
+\newcommand{\semid}{\mathcal{S}}        % Semantic framework identifier
+% Semantic framework tuple
+\newcommand{\sembody}{\left\langle \valueset,\SAFand_1, \SAFand_2,\SAFor,\lnot,\tau \right\rangle}
+\newcommand{\semdef}{\semid = \sembody}     % Semantic framework id and tuple
+\newcommand{\semprod}[1]{\semid^\cdot_{#1}} % Product semantic framework
+\newcommand{\semsub}{\semid^\text{-}}       % Subtraction semantic framework
+\newcommand{\semmax}{\semid^\text{max}}     % Max semantic framework
+
+\newcommand{\SAFand}{\curlywedge}     % Logical and for SAF equations 
+\newcommand{\SAFor}{\curlyvee}        % Logical or for SAF equations
+\DeclareMathOperator*{\SAFOr}{\bigcurlyvee} % Big or notation, works as \sum
+                             %\varcurlyvee also works, but is smaller
+\DeclareMathOperator*{\SAFAnd}{\bigcurlywedge} % Big and notation, works as \sum
+
+\newcommand{\modelset}{\mathcal{M}}   % Set of all models
+
+
+%#% old commands
+\newcommand{\afit}{\textit{AF}}
+\newcommand{\af}{\afit = \langle \args, \att \rangle}
+\newcommand{\vote}{V}
+\newcommand{\sem}{\mathcal{S}}
+
+\newcommand{\ssv}{\mathcal{V}}
+\newcommand{\tv}{\mathcal{T}}
+\newcommand{\pv}{\mathcal{P}}
+\newcommand{\xv}{\mathcal{X}}
+\newcommand{\ev}{\mathcal{E}}
+
+\newcommand{\safit}{F}
+
+\newcommand{\tupd}{\curlywedge}
+\newcommand{\tatt}{\curlyvee}
+\newcommand{\Tatt}{\varcurlyvee}
+
+\newcommand{\argarray}{\{x_1, ..., x_n\}}
+
+\newcommand{\voteset}{\mathcal{V}}
+\newcommand{\vpro}{\vote^+}
+\newcommand{\vcon}{\vote^-}
+
+%%% Mappings
+\newcommand{\mapping}{\Phi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -8,7 +154,7 @@
 
 \maketitle
 
-%This document contains some pointers ... to extend the work in IJCAI & TAFA ...
+This document contains some pointers in order to extend the framework defined in \cite{leite2011social} \& \cite{eml2013esaf}.
 
 \section{The concept of support} %as an internal structure of the arguments}
 
@@ -24,48 +170,125 @@ One methodology to achieve this objective is an extension of the current framewo
 
 An alternative approach could be constructing a system without negative votes. Thus whenever a user is in favour of an argument, s/he will be casting a vote on the argument. So we maintain the notion of support realised as  a direct concept through votes. On the other hand if the user detests an argument, then s/he find a counter argument to attack it, specify it by utilising the means of the system and then vote on the argument and the attack as well.
 
-In terms of difficulties, we are ought to consider what kinds of objections might be raised concerning these methods. Regarding the first one, we may be asked to come up with a counter-part for the PRO arguments. In the sense that,  some internal structure for arguments that contain criticism regarding the argument they're attached to. Another critique might be on the fact that each PRO argument changes the existing state of the argument. So even the in tended meaning of PRO arguments are to act as enhancers for the arguments that they're associated to, it could be possible that some users just won't share the same sentiment towards the argument anymore as the way they felt when they votes before the addition of the PRO arguments. 
+%difficulties
+In terms of difficulties, we are ought to consider what kinds of objections might be raised concerning these methods. Regarding the first one, we may be asked to come up with a counter-part for the PRO arguments. In the sense that,  some internal structure for arguments that contain criticism regarding the argument they're attached to. Another critique might be on the fact that each PRO argument changes the existing state of the argument. So even the in tended meaning of PRO arguments are to act as enhancers for the arguments that they're associated to, it could be possible that some users just won't share the same sentiment towards the argument anymore as the way they felt when they votes before the addition of the PRO arguments. The most obvious potential criticism regarding the second approach would point to the lack of negative votes, as this had been a major source of disconnect for a vast amount of Facebook users \cite{FBdislike}.
 
 \section{Representing multi-dimensional dataset} 
-Prof.Baroni had one pointer for enhancing the visual experience. The idea is representing multiple aspects concerning an argument via representing it through a face, instead of mere size\&color changes.
-So a few of the aspects that can be represented that came to our minds were the social support of the argument, the social strength of the argument, the number of total votes that were casted on the argument and also the number of attacks that argument was being subjected to.
+%the intuitive idea
+Displaying multivariate data of our framework via a multi-dimensional graph presents a challenge with respect to the ease of comprehension for the human users.
 
-\section{Bi-dimensional vote definition}
-Another suggestion from Prof.Baroni was on the topic of distinguishing two arguments with the same ratio of positive to negative votes, but with different number of total votes. In our existing system(in the simplest case), we crunch the number of positive and negative votes an argument(or an attack) has received into a single value in the interval of reel numbers $[0,1]$.
+%methodologies:
+An unorthodox method that we may utilize, instead of using mere size and color changes, is the \textit{Chernoff faces}. They were first proposed by by Herman Chernoff \cite{Chernoff73} in 1973, as a way to represent multivariate data in a manner that is easily discernible by the human viewer.  The whole reasoning behind the use of Chernoff faces relies on the claim that humans are adept at face recognition and are able to notice reasonably acute changes in facial characteristics. The faces consist of two-dimensional line drawings that contain a variety of facial features. Moreover these facial features can be mapped to different dimensions in a multidimensional data set. The individual parts, such as eyes, ears, mouth and nose represent values of the variables by their shape, size, placement and orientation. In a similar sense, our approach would be mapping concepts from our framework such as  \textit{the social support of the argument, the social strength of the argument, the number of total votes that were casted on the argument and also the number of attacks that argument was being subjected to}, to distinct facial features. One notion that requires attention is that Chernoff faces handle each variable differently and because the features of the faces vary in perceived importance, the way in which variables are mapped to the features should be carefully chosen (e.g. eye size and eyebrow-slant was found to carry considerable weight compared to rest).
 
-Instead of taking this approach, votes might be defined as vector operations in bi-dimensional space. And furthermore we may choose to treat vectors as forces.
-
-Again under this topic, I briefly mentioned as of this moment how we incorporate this size aspect concerning the votes, in the new proposals of our vote aggregation function.
-
-
-\section{Desired properties counterparts}
-Prof.Leite mentioned that one of the desired properties of our system, i.e. every vote should count, could me matched to the concept of positive responsiveness in Prof.Maudet's "multi-party persuasion" setting. So it may prove useful checking other properties as well and their counter-parts in respective settings. 
-
-
-\section{Labeling users}
-Prof.Maudet mentioned about an earlier work of his where they had this idea of labelling users and keeping a track of their contributions on the system with respect to their expertise.
-
-i.e. Argument a which is supported by two CS professors attack to argument b which is supported by three fishermen and a Math Professor.
-
-
-\section{Budget of allocated votes}
-Prof.Leite talked about our intention of limiting the total number of votes allocated for each user, and finding out how users strategies under such a setting. Prof.Maudet pointed out some relations between this idea and a game-theorethic concept called price of anarch. So in the system Prof.Maudet mentioned, agents have some fuzzy value regarding their preference on arguments. The emphasis is on how agents play(their best-response strategies) under a certain protocol, the intention being trying to make the values of arguments as close as their original preference. The price of anarch stands for the largest gap that you can get between the optimal centralized outcome, and the resulting outcome after the best-response actions carried by the agents. 
+%difficulties
+In literature, there are mixed sentiments towards the validity of Chernoff faces. For instance in \cite{Morris00} authors claim that their experiments show suggests that the use of Chernoff faces for information visualization does not take advantage of human pre-attentive visual processing, Chernoff face feature perception is a serial process and is not pre-attentive.  Since the existing experiments do not seem to be decisively conclusive for neither school of thought, perhaps the real value of Chernoff faces' use if our system can be best evaluated by carrying out our own tests.
 
 
 \section{Voting schemes regarding negative votes}
-Another topic that was extensively discussed was the notion of different voting schemes to see different interpretations of a negative vote. Prof. Baroni pointed out that it would be hard to realise this distinction in the context of Social Networks, but if we could, we might want to use different operators in our system for them. So in summary, our focus was on the question of whether a negative vote meant the argument was badly spelled out, or simply the user did not like the argument, and whether we can come up with a pure system where everyone has the same interpretation on what a negative vote is, or whether some specific operator is better suited to a certain kind of negative votes.
+%the intuitive idea
+Our system does not have any assumptions on the intrinsic meaning of a \textit{negative vote}, however making a distinguish and handling the notions accordingly might prove to be fruitful.
 
-A related topic was the concept of inconsistency with respect to the votes casted by a certain user. Prof.Leite pointed out that first since the system constantly evolves, two arguments that a specific user was in favour of can all of a sudden be attacking to each other by the introduction of some attack relation by another user. Moreover if the interpretation of the votes is taken as an argument being well-structured or not, then it's perfectly plausible to cast "positive votes" on two mutually attacking arguments.
+%methodologies & difficulties:
+Realizing the different schools of thought behind the negative votes casted by users will actually be hard. However if the classification can be made, it might be more plausible to use different operators in our system regarding them. So in summary, the focus is on the question of whether a negative vote means the argument is badly spelled out, or simply the user does not like the argument. 
 
-Prof.Baroni suggested that similar tests can be carried out, like the ones used in Emmanuella's work (briefly observing what type of syllogisms prove to be more believable by people then others) to see whether there is a dominant interpretation with respect to votes. 
+Another topic worth mentioning is whether one can come up with a pure system where everyone has the same interpretation on what a negative vote is, or as mentioned earlier some specific operator is better suited to a certain kind of negative votes.
+
+A challenge that transpires by the discussion of the different interpretations of votes, is the concept of inconsistency with respect to the votes casted by a certain user. Since the system constantly evolves, two arguments that a specific user was in favor of can all of a sudden be attacking to each other by the introduction of some attack relation by another user. Moreover if the interpretation of the votes is taken as an argument being well-structured or not, then it's perfectly plausible to cast "positive votes" on two mutually attacking arguments.
+
+Here test carried out by interacting with human users would be crucial to see whether there is a dominant interpretation with respect to votes. 
+
+%Prof.Baroni suggested that similar tests can be carried out, like the ones used in Emmanuella's work (briefly observing what type of syllogisms prove to be more believable by people then others) to see whether there is a dominant interpretation with respect to votes. 
 
 
+\section{Bi-dimensional vote definition}
+%the intuitive idea
+In addition to the ration of positive and negative votes, the total number of votes an argument has must be an important parameter when the system comes up with the final evaluation.
+
+ In our existing system, the model of an argument is computed by roughly crunching  the number of positive and negative votes the argument has received into a single value in the interval of  $[0,1] \in \mathbb{R}$. There has been some early efforts in order to remedy this notion, for instance with the following definition
+
+\begin{definition}
+[Vote Aggregation]A vote aggregation function is any function
+$\tau:%
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+\times%
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+\rightarrow\lbrack0,1]$ such that $v_{tot}\geq0$
+\[
+\tau\left(  v^{+},v^{-}\right)  =\left\{
+\begin{array}
+[c]{lll}%
+0 &  & v_{max}=0\\
+\frac{v^{+}}{v^{+}+v^{-}+\frac{1}{v_{tot}}} &  & \text{otherwise}%
+\end{array}
+\right.
+\]
+
+where $v_{max}$ stands for the total number of votes for an argument.
+\end{definition}
+
+already is sufficient to prove some desirable properties(wrt. specific context) such as \textit{The ratio of positive votes to the total amount of votes should always be the highest authority} and \textit{When the ratios are equal, the function should return a higher acceptance rate for the one with the higher number of total votes.}. Those being said, there might be a need for a more complex methodology for incorporating the total number of votes.
+
+With the inspiration of \cite{DBLP:conf/clima/BaroniRTAB13}, votes might be defined as vector operations in bi-dimensional space and vectors may be treated as forces.
+
+\textit{Note to self: extend with possible methodologies for vector operations}
+
+
+\section{Desired properties counterparts}
+\textit{Note to self: Include a few mappable notions; difficulties?}
+
+The study of how our proposal relates to others, and the identification of embeddings from other proposals into ours or vice versa is of extreme importance. Because this allows us to truly evaluate the validity, context, localization and impact of our work.
+
+
+%Prof.Leite mentioned that one of the desired properties of our system, i.e. every vote should count, could me matched to the concept of positive responsiveness in Prof.Maudet's "multi-party persuasion" setting. So it may prove useful checking other properties as well and their counter-parts in respective settings. 
+
+
+\section{Labeling users}
+%Prof.Maudet mentioned about an earlier work of his where they had this idea of labelling users and keeping a track of their contributions on the system with respect to their expertise.
+%i.e. Argument a which is supported by two CS professors attack to argument b which is supported by three fishermen and a Math Professor.
+
+\textit{Note to self: Expecting response from Muadet}
+
+\textit{goal:}  Establishing the ways different user groups affect the system 
+
+\textit{method:} Labeling users and keeping a track of their contributions on the system with respect to their expertise  
+
+
+\section{Budget of allocated votes}
+
+\textit{Note to self: Examples from previous ESAF report - Maudet price of anarchy - Idea of accumulating votes wrt. support your arguments get - check Quaestio}
+
+\textit{goal:} Finding out in strategic voting patterns of the users 
+
+\textit{method:} Limiting the number of allocated votes to each user in different settings, use of concepts from Social Choice Theory for analyzing 
+
+\textit{difficulty:} Computationally extremely challenging. 
+
+
+
+%Prof.Leite talked about our intention of limiting the total number of votes allocated for each user, and finding out how users strategies under such a setting. Prof.Maudet pointed out some relations between this idea and a game-theorethic concept called price of anarch. So in the system Prof.Maudet mentioned, agents have some fuzzy value regarding their preference on arguments. The emphasis is on how agents play(their best-response strategies) under a certain protocol, the intention being trying to make the values of arguments as close as their original preference. The price of anarch stands for the largest gap that you can get between the optimal centralized outcome, and the resulting outcome after the best-response actions carried by the agents. 
+
+
+
+
+%%%
+\begin{comment}
 \section{Efficient algorithms for computing solutions}
 Prof.Leite has mentioned on the current state of our framework regarding the algorithms for computing the models of the system. That the study focused mainly on four algorithms, that it had become apparent in early phases that two dominated the rest performance-wise. And between these two, one performs slightly better for small systems of low attack density and the other one scales better. And currently the results are satisfying in the sense that with these algorithms that one can solve(approximate) big systems(consisting of roughly a thousand arguments) under a second.
-
+\end{comment}
 
 \section{Unique issues for each user}
-As a response to my question, Prof.Maudet stated that it might be interesting to extend his work where instead of having a unique issue of the debate, letting individual agents have their own issues. This is closely related with our intention of finding out the strategies devised by users in our system in settings such as the ones with the concept budget.
+\textit{Note to self: Merge with Budget of allocated votes?}
+
+\textit{goal:} Demonstrating strategies devised by users in our system in settings such as the ones with the concept budget 
+
+\textit{method:} Instead of having a unique issue of the debate as in \cite{bonzonmaudet11}, letting every agent have their individual set of issues.
+
 
 \bibliographystyle{plain}
 \bibliography{BTCcollaboration}
