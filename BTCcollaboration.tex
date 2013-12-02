@@ -7,7 +7,7 @@
 
 \newtheorem{definition}{Definition}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Algorithms and pseudo code
 \usepackage{verbatim}
@@ -146,7 +146,8 @@
 %%% Mappings
 \newcommand{\mapping}{\Phi}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -155,7 +156,7 @@
 \maketitle
 
 This document contains some pointers in order to extend the framework defined in \cite{leite2011social} \& \cite{eml2013esaf}.
-
+\\
 \section{The concept of support} %as an internal structure of the arguments}
 
 %%{\color{red} }
@@ -163,25 +164,25 @@ This document contains some pointers in order to extend the framework defined in
 Embedding the concept of support relations in our system carries utmost importance.
 
 %the objective:
-In the current state, of our system there is no concept that could be directly mapped to the notion of support relations as in the works like \cite{DBLP:journals/ijis/AmgoudCLL08}. The only ways of realising indirect support in the state of art would be casting negative votes to the attackers of the supported argument, or in a similar sense to cast positive votes in favour of the attackers of the attackers. Here the discussion is on if the system could benefit by having a more comprehensive mechanism with respect to the notion of support. 
+In the current state, of our system there is no concept that could be directly mapped to the notion of support relations as in the works like \cite{DBLP:journals/ijis/AmgoudCLL08}. The only ways of realising indirect support in the state of art would be casting negative votes to the attackers of the supported argument, or in a similar sense to cast positive votes in favour of the attackers of the attackers of the particular argument. Here the discussion is on whether the system could benefit by having a more comprehensive mechanism with respect to the notion of support. 
 
 %methodologies:
-One methodology to achieve this objective is an extension of the current framework with a notion of \emph{PRO arguments}. In the sense that, instead of defining the counterpart of binary attack relations, the so-called support relations, we consider the new concept of PRO argument which would be internal structures for the existing arguments. The correlation will not be realised via a binary relation, but PRO arguments will simply be attached to their corresponding arguments as internal structures. The social voting still will only take part on the arguments themselves, thus these structures should be interpreted as additional reasons to make users vote on that particular argument.
+One methodology to achieve this objective is an extension of the current framework with a notion of \emph{PRO arguments}. In the sense that, instead of defining the counterpart of binary attack relations, the so-called support relations, we consider the new concept of PRO arguments, which would be internal structures for the existing arguments. The correlation will not be realised via a binary relation, but PRO arguments will simply be attached to their corresponding arguments as internal structures. The social voting still will only take part on the arguments themselves, thus these structures should be interpreted as additional reasons to make users vote on that particular argument.
 
-An alternative approach could be constructing a system without negative votes. Thus whenever a user is in favour of an argument, s/he will be casting a vote on the argument. So we maintain the notion of support realised as  a direct concept through votes. On the other hand if the user detests an argument, then s/he find a counter argument to attack it, specify it by utilising the means of the system and then vote on the argument and the attack as well.
+An alternative approach could be constructing a system without negative votes. Thus whenever a user is in favour of an argument, s/he will be casting a vote on the argument. So we maintain the notion of support realised as  a direct concept through votes. On the other hand if the user detests an argument, then s/he should find a counter argument to attack it, specify it by utilising the means of the system and then vote on the argument and the attack as well.
 
 %difficulties
-In terms of difficulties, we are ought to consider what kinds of objections might be raised concerning these methods. Regarding the first one, we may be asked to come up with a counter-part for the PRO arguments. In the sense that,  some internal structure for arguments that contain criticism regarding the argument they're attached to. Another critique might be on the fact that each PRO argument changes the existing state of the argument. So even the in tended meaning of PRO arguments are to act as enhancers for the arguments that they're associated to, it could be possible that some users just won't share the same sentiment towards the argument anymore as the way they felt when they votes before the addition of the PRO arguments. The most obvious potential criticism regarding the second approach would point to the lack of negative votes, as this had been a major source of disconnect for a vast amount of Facebook users \cite{FBdislike}.
+In terms of difficulties, we are ought to consider what kinds of objections might be raised concerning these methods. Regarding the first one, we may be asked to come up with a counter-part for the PRO arguments. In the sense that,  some internal structure for arguments that contain criticism regarding the argument they're attached to. Another critique might be on the fact that each PRO argument changes the existing state of the argument. So even that the intended meaning of PRO arguments are to act as enhancers for the arguments they're associated to, indeed it could be possible that some users just won't share the same sentiment towards a particular argument anymore as a result of the addition of the PRO arguments. The most obvious potential criticism regarding the second approach may point to the fact of the system lacking negative votes, as this had also been a major source of disconnect for a vast amount of Facebook users \cite{FBdislike}.
 
 \section{Representing multi-dimensional dataset} 
 %the intuitive idea
 Displaying multivariate data of our framework via a multi-dimensional graph presents a challenge with respect to the ease of comprehension for the human users.
 
 %methodologies:
-An unorthodox method that we may utilize, instead of using mere size and color changes, is the \textit{Chernoff faces}. They were first proposed by by Herman Chernoff \cite{Chernoff73} in 1973, as a way to represent multivariate data in a manner that is easily discernible by the human viewer.  The whole reasoning behind the use of Chernoff faces relies on the claim that humans are adept at face recognition and are able to notice reasonably acute changes in facial characteristics. The faces consist of two-dimensional line drawings that contain a variety of facial features. Moreover these facial features can be mapped to different dimensions in a multidimensional data set. The individual parts, such as eyes, ears, mouth and nose represent values of the variables by their shape, size, placement and orientation. In a similar sense, our approach would be mapping concepts from our framework such as  \textit{the social support of the argument, the social strength of the argument, the number of total votes that were casted on the argument and also the number of attacks that argument was being subjected to}, to distinct facial features. One notion that requires attention is that Chernoff faces handle each variable differently and because the features of the faces vary in perceived importance, the way in which variables are mapped to the features should be carefully chosen (e.g. eye size and eyebrow-slant was found to carry considerable weight compared to rest).
+An unorthodox yet interesting method that we may utilize, instead of using mere size and color changes of arguments, is the \textit{Chernoff faces}. They were first proposed by by Herman Chernoff \cite{Chernoff73} in 1973, as a way to represent multivariate data in a manner that is easily discernible by the human viewer.  The whole reasoning behind the use of Chernoff faces relies on the claim that humans are adept at face recognition and are able to notice reasonably acute changes in facial characteristics. The faces consist of two-dimensional line drawings that contain a variety of facial features. Moreover these facial features can be mapped to different dimensions in a multidimensional data set. The individual parts, such as eyes, ears, mouth and nose represent values of the variables by their shape, size, placement and orientation. In a similar sense, our approach would be mapping concepts from our framework such as  \textit{the social support of the argument, the social strength of the argument, the number of total votes that were casted on the argument and also the number of attacks that argument was being subjected to}, to distinct facial features. One notion that requires attention is that Chernoff faces handle each variable differently and because the features of the faces vary in perceived importance, the way in which variables are mapped to the features should be carefully chosen (e.g. eye size and eyebrow-slant was found to carry considerable weight compared to rest \cite{Morris00}).
 
 %difficulties
-In literature, there are mixed sentiments towards the validity of Chernoff faces. For instance in \cite{Morris00} authors claim that their experiments show suggests that the use of Chernoff faces for information visualization does not take advantage of human pre-attentive visual processing, Chernoff face feature perception is a serial process and is not pre-attentive.  Since the existing experiments do not seem to be decisively conclusive for neither school of thought, perhaps the real value of Chernoff faces' use if our system can be best evaluated by carrying out our own tests.
+In literature, there are mixed sentiments towards the validity of Chernoff faces. For instance in \cite{Morris00} authors claim that their experiments clearly depict that the use of Chernoff faces for information visualization does not take advantage of human pre-attentive visual processing, that Chernoff face feature perception is solely a serial process and not pre-attentive. Since the existing experiments do not seem to be decisively conclusive for neither schools of thought, perhaps the real value of Chernoff faces' use if our system can be best evaluated by carrying out our own tests.
 
 
 \section{Voting schemes regarding negative votes}
@@ -189,105 +190,66 @@ In literature, there are mixed sentiments towards the validity of Chernoff faces
 Our system does not have any assumptions on the intrinsic meaning of a \textit{negative vote}, however making a distinguish and handling the notions accordingly might prove to be fruitful.
 
 %methodologies & difficulties:
-Realizing the different schools of thought behind the negative votes casted by users will actually be hard. However if the classification can be made, it might be more plausible to use different operators in our system regarding them. So in summary, the focus is on the question of whether a negative vote means the argument is badly spelled out, or simply the user does not like the argument. 
+Automated recognition of different schools of thought behind the negative votes casted by users is expected to be a hard problem. However if the classification can be made, it might be more plausible to use different operators in our system regarding their utilization. So in summary, the focus is on the question of whether a negative vote means the argument is badly spelled out, or simply the user does not like the argument. One methodology here can be rather than relying on automated mechanisms for capturing types, distinctly specifying the two types of negative votes and moreover their related operators. 
 
-Another topic worth mentioning is whether one can come up with a pure system where everyone has the same interpretation on what a negative vote is, or as mentioned earlier some specific operator is better suited to a certain kind of negative votes.
+Another point of debate worth mentioning is whether one can come up with a pure system where everyone has the same interpretation on what a negative vote is, or as mentioned earlier if some specific operator is better suited to a certain scheme of negative votes. In the case of the former scenario, we believe existing mechanisms of our current system for model evaluation are satisfactory, or least lay a strong foundation for future research.
 
-A challenge that transpires by the discussion of the different interpretations of votes, is the concept of inconsistency with respect to the votes casted by a certain user. Since the system constantly evolves, two arguments that a specific user was in favor of can all of a sudden be attacking to each other by the introduction of some attack relation by another user. Moreover if the interpretation of the votes is taken as an argument being well-structured or not, then it's perfectly plausible to cast "positive votes" on two mutually attacking arguments.
+A challenge that transpires by the discussion of the different interpretations of votes is the concept of inconsistency with respect to the votes casted by a certain user. Since the system constantly evolves, two arguments that a specific user was in favor of can all of a sudden be attacking to each other as a consequence of the introduction of some attack relation by another user. Moreover, if the interpretation of the votes is taken as an argument being well-structured or not, then it's perfectly plausible to cast "positive votes" on two mutually attacking arguments.
 
-Here test carried out by interacting with human users would be crucial to see whether there is a dominant interpretation with respect to votes. 
+%difficulties(not so much)
+Lastly, we may conclude that tests carried out via interacting with human users would be critical to see whether there is a dominant interpretation with respect to negative votes. 
 
-%Prof.Baroni suggested that similar tests can be carried out, like the ones used in Emmanuella's work (briefly observing what type of syllogisms prove to be more believable by people then others) to see whether there is a dominant interpretation with respect to votes. 
 
 
 \section{Bi-dimensional vote definition}
 %the intuitive idea
-In addition to the ration of positive and negative votes, the total number of votes an argument has must be an important parameter when the system comes up with the final evaluation.
+In addition to the ratio of positive and negative votes, the total number of votes an argument has must be an important parameter, when the system comes up with the final evaluation.
 
- In our existing system, the model of an argument is computed by roughly crunching  the number of positive and negative votes the argument has received into a single value in the interval of  $[0,1] \in \mathbb{R}$. There has been some early efforts in order to remedy this notion, for instance with the following definition
+ In our existing system, the model of an argument is computed by roughly crunching  the number of positive and negative votes the argument has received into a single value in  $[0,1] \in \mathbb{R}$. There has been some early efforts in order to remedy this notion, scientifically for incorporating the effect of number of total votes into our vote aggregation function. For instance with the following definition:
 
+\newpage
 \begin{definition}
 [Vote Aggregation]A vote aggregation function is any function
-$\tau:%
-%TCIMACRO{\U{2115} }%
-%BeginExpansion
+$\tau:
 \mathbb{N}
-%EndExpansion
-\times%
-%TCIMACRO{\U{2115} }%
-%BeginExpansion
+\times
 \mathbb{N}
-%EndExpansion
 \rightarrow\lbrack0,1]$ such that $v_{tot}\geq0$
 \[
 \tau\left(  v^{+},v^{-}\right)  =\left\{
 \begin{array}
-[c]{lll}%
+[c]{lll}
 0 &  & v_{max}=0\\
-\frac{v^{+}}{v^{+}+v^{-}+\frac{1}{v_{tot}}} &  & \text{otherwise}%
+\frac{v^{+}}{v^{+}+v^{-}+\frac{1}{v_{tot}}} &  & \text{otherwise}
 \end{array}
 \right.
 \]
 
-where $v_{max}$ stands for the total number of votes for an argument.
+where $v_{tot}$ stands for the total number of votes for an argument.
 \end{definition}
 
-already is sufficient to prove some desirable properties(wrt. specific context) such as \textit{The ratio of positive votes to the total amount of votes should always be the highest authority} and \textit{When the ratios are equal, the function should return a higher acceptance rate for the one with the higher number of total votes.}. Those being said, there might be a need for a more complex methodology for incorporating the total number of votes.
+already is sufficient to prove some desirable properties(wrt. specific context) such as \textit{"The ratio of positive votes to the total amount of votes should always be the highest authority on the final valuation of the social support"} and \textit{"When the ratios are equal, the function should return a higher acceptance rate for the one with the higher number of total votes"}. Those being said, there might be a need for a more complex methodology in order to incorporate the total number of votes to our framework.
 
-With the inspiration of \cite{DBLP:conf/clima/BaroniRTAB13}, votes might be defined as vector operations in bi-dimensional space and vectors may be treated as forces.
+With the inspiration of \cite{baroniTAB13}, in our system votes might be defined as vector operations in bi-dimensional space and vectors may be treated as forces. So simply the idea is defining the social support of an argument as one component and the total number of votes the argument has received as the other one in 2D-space. And then we continue by evaluating the social strength via adding the vectors utilizing the vector calculus, where the direction of the vectors are determined via the attack direction. In a similar sense as the other formal mechanisms of our system, there are multiple options regarding the method for realizing the vector operations, which requires further theoretical investigation.
 
-\textit{Note to self: extend with possible methodologies for vector operations}
-
-
-\section{Desired properties counterparts}
-\textit{Note to self: Include a few mappable notions; difficulties?}
-
-The study of how our proposal relates to others, and the identification of embeddings from other proposals into ours or vice versa is of extreme importance. Because this allows us to truly evaluate the validity, context, localization and impact of our work.
+At the first glance it seems as once the theoretic foundation is defined, this class of methodologies should not impose a computational overhead to the existing system; since computing the solutions will again be the problem of finding the fixpoint of the model equations.
 
 
-%Prof.Leite mentioned that one of the desired properties of our system, i.e. every vote should count, could me matched to the concept of positive responsiveness in Prof.Maudet's "multi-party persuasion" setting. So it may prove useful checking other properties as well and their counter-parts in respective settings. 
+\section{Strategic Voting}
+%the intuitive idea
+In order to demonstrate how prone our system is against manipulation, studying strategic voting is truly important.
 
+Our system is going to be utilized by human users. Undoubtedly they are going to be acting as self-interested entities and try to capitalize on opportunities in which they man manipulate the system and get closer to their preferred outcome. Ideally we would like to be able to assure the confidence of the users in the sense that they wouldn't have to any incentive to worry about strategic reasoning and the ways they choose to vote. They could simply vote on the arguments and attacks they like and that would be the best thing they could do in terms of their desired outcome. Such a state with respect to the field of voting systems is a utopia and indeed formally proven to be impossible \cite{arrow}. Having said that, there are works in the literature which dwell with related notions to this subject. One example is the concept of \textit{price of anarchy}  \cite{koutsoupiasP99}, which provides a measure of how much a system degrades due to self-centric acts of its agents.
 
-\section{Labeling users}
-%Prof.Maudet mentioned about an earlier work of his where they had this idea of labelling users and keeping a track of their contributions on the system with respect to their expertise.
-%i.e. Argument a which is supported by two CS professors attack to argument b which is supported by three fishermen and a Math Professor.
+%methodologies:
+In the light of this discussion, one methodology for the purpose of finding out the behavior patterns of users in our system could be the introduction of a budget concept on votes. Roughly the idea is allotting users a certain amount of vote to be casted on the arguments and attack relations. So in this setting, since the votes the users possess is finite, they are forced to make a set of rational selections between the available choices.There are works in the fields of Social Choice Theory and Voting Theory that might help us. For instance \cite{bonzonmaudet11} inspects a scenario where each agent has a specific preference on one particular argument in the system, named as \textit{the issue}. The agents try to mold the system with respect to their own preference on the issue, by utilizing the pre-defined rules. One natural extension of this system would be enhancing the framework by letting each individual have their own set of issues. This setting is very close to the desired state of our own system, as we do not want to restrict the preferences of the users by any measure, and still want to be able to maintain a satisfactory list of desired properties.  
 
-\textit{Note to self: Expecting response from Muadet}
+%difficulties
+The main difficulty with such an approach is that it's both theoretically and computationally overwhelming. Whenever the desired argument(and possibly attack) list of a user includes more than a single entity, we must also take into consideration the relative preference ranking between those entities. Even when dealing with one arbitrary snapshot of the system, it would be impossible to specify a pay-off matrix with respect to the users and their moves, as the list of parameters(the user set, available actions, distinct preference sets) is immensely vast. Moreover, the system is dynamic where people will be constantly casting votes, specifying new arguments and attacks relations. Therefore, marginal changes regarding the preferences of users over entities will occur. A simple example that comes to mind is an argument enjoying perfect strength might not initially make sense for a user to cast a vote on, even if it's one of her preferred entities. But after the system evolves, it might perhaps gather a significant amount of negative votes and suddenly become very appealing for the potential supporter. All in all, the subject of strategic voting in social argumentation systems is surely intriguing but also extremely challenging. 
 
-\textit{goal:}  Establishing the ways different user groups affect the system 
+%additional enhancement
+On a different note, another idea which relates to the aforementioned topics is inspired by \cite{maudetComma}. The authors choose to work with a method that utilizes labeling users and keeping a track of their contributions on the system with respect to their expertise. Thus one may easily establish the distinct ways different user groups affect the system. Embedding of this idea is certainly worthwhile.
 
-\textit{method:} Labeling users and keeping a track of their contributions on the system with respect to their expertise  
-
-
-\section{Budget of allocated votes}
-
-\textit{Note to self: Examples from previous ESAF report - Maudet price of anarchy - Idea of accumulating votes wrt. support your arguments get - check Quaestio}
-
-\textit{goal:} Finding out in strategic voting patterns of the users 
-
-\textit{method:} Limiting the number of allocated votes to each user in different settings, use of concepts from Social Choice Theory for analyzing 
-
-\textit{difficulty:} Computationally extremely challenging. 
-
-
-
-%Prof.Leite talked about our intention of limiting the total number of votes allocated for each user, and finding out how users strategies under such a setting. Prof.Maudet pointed out some relations between this idea and a game-theorethic concept called price of anarch. So in the system Prof.Maudet mentioned, agents have some fuzzy value regarding their preference on arguments. The emphasis is on how agents play(their best-response strategies) under a certain protocol, the intention being trying to make the values of arguments as close as their original preference. The price of anarch stands for the largest gap that you can get between the optimal centralized outcome, and the resulting outcome after the best-response actions carried by the agents. 
-
-
-
-
-%%%
-\begin{comment}
-\section{Efficient algorithms for computing solutions}
-Prof.Leite has mentioned on the current state of our framework regarding the algorithms for computing the models of the system. That the study focused mainly on four algorithms, that it had become apparent in early phases that two dominated the rest performance-wise. And between these two, one performs slightly better for small systems of low attack density and the other one scales better. And currently the results are satisfying in the sense that with these algorithms that one can solve(approximate) big systems(consisting of roughly a thousand arguments) under a second.
-\end{comment}
-
-\section{Unique issues for each user}
-\textit{Note to self: Merge with Budget of allocated votes?}
-
-\textit{goal:} Demonstrating strategies devised by users in our system in settings such as the ones with the concept budget 
-
-\textit{method:} Instead of having a unique issue of the debate as in \cite{bonzonmaudet11}, letting every agent have their individual set of issues.
 
 
 \bibliographystyle{plain}
